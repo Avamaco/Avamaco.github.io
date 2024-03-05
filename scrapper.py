@@ -2,6 +2,7 @@ import requests
 import os
 import re
 from duckduckgo_search import DDGS
+import io
 import pandas as pd
 
 
@@ -23,7 +24,7 @@ def get_main_article(html_text):
                     .replace("<p>", "")
                     .replace("</p>", "\n\n"))
 
-    out_file = open("article.md", "w")
+    out_file = open("article.md", "w", encoding='utf-8')
     out_file.write("# Best TTRPGs in 2024\n\n")
     out_file.write(article_text + "\n\n")
     out_file.close()
@@ -42,7 +43,7 @@ def get_list(html_text):
 
 
 def more_articles(title_list):
-    main_article = open("article.md", "a")
+    main_article = open("article.md", "a", encoding='utf-8')
     main_article.write("## List of the best tabletop RPGs\n\n")
     for title in title_list:
         inside_article = "Coś poszło nie tak :("
@@ -50,10 +51,9 @@ def more_articles(title_list):
         for x in DDGS().text(title + " TTRPG", max_results=1):
             inside_article = x["body"]
             link_outside = x["href"]
-        inside_article = inside_article.encode('utf-8', 'ignore').decode("utf-8")
         file_name = ''.join(filter(str.isalpha, title)).lower()
         file_path = os.path.join("list_elements", file_name + ".md")
-        out_file = open(file_path, "w")
+        out_file = open(file_path, "w", encoding='utf-8')
         out_file.write("# " + title + "\n\n")
         out_file.write(inside_article + "\n\n")
         out_file.write("[Click here for more](" + link_outside + ")")
@@ -64,5 +64,6 @@ def more_articles(title_list):
 
 if __name__ == "__main__":
     text = get_html()
+    get_main_article(text)
     my_title_list = get_list(text)
     more_articles(my_title_list)

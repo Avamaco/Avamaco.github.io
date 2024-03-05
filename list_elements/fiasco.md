@@ -1,5 +1,5 @@
 # Fiasco
 
-Fiasco is a game for 3-5 players to create and play out stupid, disastrous situations inspired by films like Blood Simple, Fargo, and The Way of the Gun. You can play with playing cards, dice, and reference cards, and choose from different playsets to suit your mood and style.
+Fiasco is a role-playing game by Jason Morningstar, independently published by Bully Pulpit Games.It is marketed as a "GM-less game for 3-5 players, designed to be played in a few hours with six-sided dice and no preparation".It is billed as "A game of powerful ambition and poor impulse control" and "inspired by cinematic tales of small time capers gone disastrously wrong—films like Blood ...
 
-[Click here for more](https://bullypulpitgames.com/products/fiasco)
+[Click here for more](https://en.wikipedia.org/wiki/Fiasco_(role-playing_game))

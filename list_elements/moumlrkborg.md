@@ -1,5 +1,5 @@
 # M&ouml;rk Borg 
 
-MÖRK BORG. CY_BORG. A doom metal album of a game. A spiked flail to the face. Light on rules, heavy everything else. Best Writing. GOLD. Best Layout & Design. GOLD. Product of the Year. GOLD. Best Game. SILVER. Best Supplement. GOLD. MÖRK BORG CULT: FERETORY. Best Online Content. GOLD. DNGNGEN. Best Digital Aid/Accessory. Best Digital Aid ...
+MÃ–RK BORG (aka Mork Borg, pronounced Murk Borg) is a brutal fantasy TTRPG set in the Dying Lands. Taron explains how to play Free League's brutal little meta...
 
-[Click here for more](https://morkborg.com/)
+[Click here for more](https://www.youtube.com/watch?v=iKrkhCMgiRI)
