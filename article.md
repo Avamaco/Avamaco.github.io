@@ -6,25 +6,25 @@ The most well-known and popular tabletop roleplaying game in the west is easily 
 
 ## List of the best tabletop RPGs
 
-[Perils &amp; Princesses](list_elements/perilsampprincesses)
+[Perils &amp; Princesses](list_elements/perilsampprincesses.html)
 
-[Coyote &amp; Crow](list_elements/coyoteampcrow)
+[Coyote &amp; Crow](list_elements/coyoteampcrow.html)
 
-[ Delta Green](list_elements/deltagreen)
+[ Delta Green](list_elements/deltagreen.html)
 
-[Blades in the Dark](list_elements/bladesinthedark)
+[Blades in the Dark](list_elements/bladesinthedark.html)
 
-[Starfinder](list_elements/starfinder)
+[Starfinder](list_elements/starfinder.html)
 
-[M&ouml;rk Borg ](list_elements/moumlrkborg)
+[M&ouml;rk Borg ](list_elements/moumlrkborg.html)
 
-[City of Mist](list_elements/cityofmist)
+[City of Mist](list_elements/cityofmist.html)
 
-[Lancer](list_elements/lancer)
+[Lancer](list_elements/lancer.html)
 
-[Fabula Ultima](list_elements/fabulaultima)
+[Fabula Ultima](list_elements/fabulaultima.html)
 
-[Brindlewood Bay](list_elements/brindlewoodbay)
+[Brindlewood Bay](list_elements/brindlewoodbay.html)
 
-[Fiasco](list_elements/fiasco)
+[Fiasco](list_elements/fiasco.html)
 

@@ -50,6 +50,7 @@ def more_articles(title_list):
         for x in DDGS().text(title + " TTRPG", max_results=1):
             inside_article = x["body"]
             link_outside = x["href"]
+        inside_article = inside_article.encode('utf-8', 'ignore').decode("utf-8")
         file_name = ''.join(filter(str.isalpha, title)).lower()
         file_path = os.path.join("list_elements", file_name + ".md")
         out_file = open(file_path, "w")
@@ -57,7 +58,7 @@ def more_articles(title_list):
         out_file.write(inside_article + "\n\n")
         out_file.write("[Click here for more](" + link_outside + ")")
         out_file.close()
-        main_article.write("[" + title + "](list_elements/" + file_name + ")\n\n")
+        main_article.write("[" + title + "](list_elements/" + file_name + ".html)\n\n")
     main_article.close()
 
 
