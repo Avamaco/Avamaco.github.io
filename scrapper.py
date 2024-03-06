@@ -2,8 +2,6 @@ import requests
 import os
 import re
 from duckduckgo_search import DDGS
-import io
-import pandas as pd
 
 
 def get_html():
