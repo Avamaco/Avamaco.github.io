@@ -30,3 +30,6 @@ The most well-known and popular tabletop roleplaying game in the west is easily 
 
 [Fiasco](list_elements/fiasco.html)
 
+---
+
+[Back to the main page](main_page.html)
