@@ -4,4 +4,4 @@ Born of the U.S. government's 1928 raid on the degenerate coastal town of Innsmo
 
 [Click here for more](https://www.delta-green.com/)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

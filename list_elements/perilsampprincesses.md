@@ -4,4 +4,4 @@ Perils & Princesses. is a tabletop role-playing game about Fairy Tale Princesses
 
 [Click here for more](https://perilsandprincesses.com/)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

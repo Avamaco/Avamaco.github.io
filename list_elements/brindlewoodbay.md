@@ -4,4 +4,4 @@ Brindlewood Bay is a tabletop roleplaying game that combines Murder, She Wrote w
 
 [Click here for more](https://www.drivethrurpg.com/product/410316/Brindlewood-Bay-Kickstarter-Edition)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

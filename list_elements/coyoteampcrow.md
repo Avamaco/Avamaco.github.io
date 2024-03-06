@@ -4,4 +4,4 @@ Coyote & Crow the roleplaying game, is a multiple award winning and nominated sc
 
 [Click here for more](https://coyoteandcrow.net/)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

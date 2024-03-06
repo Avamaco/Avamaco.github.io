@@ -4,4 +4,4 @@ The Starfinder Society Roleplaying Guild is a worldwide science fantasy campaign
 
 [Click here for more](https://paizo.com/starfinder/)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

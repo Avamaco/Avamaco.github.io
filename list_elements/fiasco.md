@@ -4,4 +4,4 @@ Fiasco is a role-playing game by Jason Morningstar, independently published by B
 
 [Click here for more](https://en.wikipedia.org/wiki/Fiasco_(role-playing_game))
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

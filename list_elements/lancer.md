@@ -4,4 +4,4 @@ Lancer's vision of humanity is cosmopolitan and polyglot — it is a vision of t
 
 [Click here for more](https://massifpress.com/lancer)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

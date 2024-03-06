@@ -4,4 +4,4 @@ Fabula Ultima TTJRPG won Best Game (Gold) and Product of the Year (Silver) in th
 
 [Click here for more](https://www.drivethrurpg.com/product/410108/Fabula-Ultima-TTJRPG)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

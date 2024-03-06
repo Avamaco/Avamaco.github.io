@@ -4,4 +4,4 @@ City of Mist is a cinematic tabletop RPG (TTRPG) of investigation, drama, and ac
 
 [Click here for more](https://cityofmist.co/)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)

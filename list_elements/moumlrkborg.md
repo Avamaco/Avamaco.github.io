@@ -4,4 +4,4 @@ MÖRK BORG (aka Mork Borg, pronounced Murk Borg) is a brutal fantasy TTRPG set i
 
 [Click here for more](https://www.youtube.com/watch?v=iKrkhCMgiRI)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)
