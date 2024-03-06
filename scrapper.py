@@ -85,7 +85,9 @@ def write_main_page():
 
 
 if __name__ == "__main__":
+    write_main_page()
     text = get_html()
     get_main_article(text)
     my_title_list = get_list(text)
     more_articles(my_title_list)
+    finish_article()
