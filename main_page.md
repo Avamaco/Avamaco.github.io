@@ -1,4 +1,4 @@
-![Alt text](https://tourguidegames.com/wp-content/uploads/2021/06/Copyofzolldesignlogo1.png)
+![Alt text](https://www.gamersdecide.com/sites/default/files/styles/news_images/public/tabletop_rpgs_1.jpg)
 
 # A few words about TTRPGs
 
