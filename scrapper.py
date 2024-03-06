@@ -55,7 +55,7 @@ def more_articles(title_list):
         out_file.write("# " + title + "\n\n")
         out_file.write(inside_article + "\n\n")
         out_file.write("[Click here for more](" + link_outside + ")\n\n")
-        out_file.write("[Back to the main article](article.html)\n\n")
+        out_file.write("[Back to the main article](../article.html)\n\n")
         out_file.close()
         main_article.write("[" + title + "](list_elements/" + file_name + ".html)\n\n")
     main_article.close()

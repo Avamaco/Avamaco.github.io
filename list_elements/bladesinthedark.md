@@ -4,4 +4,4 @@ Blades in the Dark is a tabletop role-playing game about a crew of daring scound
 
 [Click here for more](https://bladesinthedark.com/)
 
-[Back to the main article](article.html)
+[Back to the main article](../article.html)
