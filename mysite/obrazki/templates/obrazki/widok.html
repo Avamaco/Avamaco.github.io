@@ -1,0 +1,11 @@
+{% if obrazek %}
+    <p>{{ obrazek.nazwa }}</p>
+    {{ svg_text }}
+    <div></div>
+    <p>{{ obrazek.opis }}</p>
+    <a href="/obrazki/{{ obrazek.id }}/edit/">Edytuj</a>
+    <div></div>
+    <a href="/obrazki/">Powrót do listy obrazków</a>
+{% else %}
+    <p>But no obrazki.</p>
+{% endif %}
