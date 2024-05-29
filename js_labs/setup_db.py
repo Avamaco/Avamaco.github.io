@@ -35,7 +35,6 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 
-
 class Rect(Base):
     __tablename__ = "rects"
     id = mapped_column(Integer, primary_key=True)
@@ -46,48 +45,88 @@ class Rect(Base):
     color=mapped_column(String(20))
     
     pic_id = mapped_column(Integer, ForeignKey('pics.id'))
-    
+
+
 class Pic(Base):
     __tablename__ = "pics"
     id = mapped_column(Integer, primary_key=True)
     rects = relationship('Rect', backref='pics')
-    
-    
 
+
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: list[WebSocket] = []
+
+    async def connect(self, websocket: WebSocket):
+        await websocket.accept()
+        self.active_connections.append(websocket)
+
+    def disconnect(self, websocket: WebSocket):
+        self.active_connections.remove(websocket)
+
+    async def send_personal_message(self, message: str, websocket: WebSocket):
+        # try:
+        await websocket.send_text(message)
+        # except Exception as e:
+            # self.disconnect(websocket)
+
+    async def broadcast(self, message: str):
+        for connection in self.active_connections:
+            await connection.send_text(message)
+            # await self.send_personal_message(message, connection)
+
+
+manager = ConnectionManager()
 
 
 Base.metadata.create_all(bind=engine)
 
 
 def get_db():
-	db = SessionLocal()
-	try:
-		yield db
-	finally:
-		db.close()
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
- 
+
+def get_latest(db):
+    m_id = db.query(Pic).count()
+    resp = []
+    for i in range(m_id - 2, m_id + 1):
+        rects = db.query(Rect).filter(Rect.pic_id == i).all()
+        if rects is None:
+            raise HTTPException(status_code=404, detail="Pic not found")
+        ret = []
+        for r in rects:
+            ret.append({"x": str(r.x), "y": str(r.y), "w": str(r.w), "h": str(r.h), "color": r.color})
+        resp.append(ret)
+    return json.dumps(resp)
+
+
 @app.post("/pics/")
-async def create_pic(pic : List[Dict], db: Session = Depends(get_db)):
-    
+async def create_pic(pic: List[Dict], db: Session = Depends(get_db)):
     p = Pic()
     for d in pic:
-        r=Rect(x=int(d['x']),y=int(d['y']),w=int(d['w']),h=int(d['h']),color=d['color'])
+        r = Rect(x=int(d['x']), y=int(d['y']), w=int(d['w']), h=int(d['h']), color=d['color'])
         p.rects.append(r)
     
     db.add(p)
     db.commit()
     db.refresh(p)
+
+    await manager.broadcast(get_latest(db))
     return p
 
+
 @app.get("/pics/{pic_id}")
-async def ret_pic(pic_id : int, db: Session = Depends(get_db)):
-    err_type = randint(0,9)
-    if err_type<2:
+async def ret_pic(pic_id: int, db: Session = Depends(get_db)):
+    err_type = randint(0, 9)
+    if err_type < 2:
         sleep(3)
-    elif err_type<4:
+    elif err_type < 4:
         raise HTTPException(status_code=500, detail="Random error")
-    elif err_type<6:
+    elif err_type < 6:
         f = open('large_file.json')
         data = json.load(f)
         f.close()
@@ -95,41 +134,30 @@ async def ret_pic(pic_id : int, db: Session = Depends(get_db)):
     rects = db.query(Rect).filter(Rect.pic_id == pic_id).all()
     if rects is None:
         raise HTTPException(status_code=404, detail="Pic not found")
-    ret=[]
+    ret = []
     for r in rects:
-        ret.append({"x":str(r.x),"y":str(r.y),"w":str(r.w),"h":str(r.h),"color":r.color})
+        ret.append({"x": str(r.x), "y": str(r.y), "w": str(r.w), "h": str(r.h), "color": r.color})
     return ret
+
 
 @app.get("/pics/")
 async def ret_number_of_pics(db: Session = Depends(get_db)):
     return db.query(Pic).count()
 
 
-
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket, db: Session = Depends(get_db)):
-    await websocket.accept()
+    await manager.connect(websocket)
+    await manager.send_personal_message(get_latest(db), websocket)
     try:
         while True:
-            m_id = db.query(Pic).count()
-            resp=[]
-            for i in range(m_id-2,m_id+1):
-                rects = db.query(Rect).filter(Rect.pic_id == i).all()
-                if rects is None:
-                    raise HTTPException(status_code=404, detail="Pic not found")
-                ret=[]
-                for r in rects:
-                    ret.append({"x":str(r.x),"y":str(r.y),"w":str(r.w),"h":str(r.h),"color":r.color})
-                resp.append(ret)
-            await websocket.send_text(json.dumps(resp))
-            await asyncio.sleep(1)
+            await websocket.receive_text()
     except Exception as e:
         print(f"Connection closed: {e}")
     finally:
-        await websocket.close()
+        manager.disconnect(websocket)
 
 if __name__ == "__main__":
-	import uvicorn
-
-	# Run the FastAPI application using Uvicorn
-	uvicorn.run(app, host="127.0.0.1", port=8000)
+    import uvicorn
+    # Run the FastAPI application using Uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)

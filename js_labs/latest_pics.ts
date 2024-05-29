@@ -25,6 +25,6 @@ ws.addEventListener("error", (event) => {
 });
 
 window.onbeforeunload = function() {
-    ws.onclose = function () {}; // disable onclose handler first
+    ws.onclose = function () {};
     ws.close();
 };
